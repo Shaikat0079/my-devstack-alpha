@@ -1,10 +1,17 @@
+import { useState, type Dispatch, type SetStateAction } from "react";
 import type { ITechnology } from "../../types/technologyType";
 
-interface TechnologyCardProps {
-  technology: ITechnology;
+interface ITechnologyCardProps {
+technology: ITechnology;
+handleSelectTechnology: (technology: ITechnology) => void;
 }
 
-const TechnologyCard = ({ technology }: TechnologyCardProps) => {
+const TechnologyCard = ({ technology,handleSelectTechnology}: ITechnologyCardProps) => {
+  const [isSelected, setIsSelected] = useState(false);
+  const handleSelectedTechno =()=>{
+    setIsSelected(true)
+  }
+  console.log(isSelected, setIsSelected, "isSelected, setIsSelected");
   return (
     <div className="group relative w-full max-w-sm overflow-hidden rounded-2xl border border-gray-200 bg-white p-5 shadow-md transition-all duration-300 hover:-translate-y-2 hover:border-purple-300 hover:shadow-xl hover:shadow-purple-200/40">
       {/* Gaming glow */}
@@ -25,7 +32,7 @@ const TechnologyCard = ({ technology }: TechnologyCardProps) => {
           </div>
 
           {/* Badge */}
-          <span className="rounded-full border border-purple-200 bg-gradient-to-r from-red-50 to-purple-50 px-3 py-1 text-xs font-bold uppercase tracking-wider text-sky-600">
+          <span className="rounded-full border border-purple-200 bg-linear-to-r from-red-50 to-purple-50 px-3 py-1 text-xs font-bold uppercase tracking-wider text-sky-600">
             {technology.badge}
           </span>
         </div>
@@ -36,12 +43,12 @@ const TechnologyCard = ({ technology }: TechnologyCardProps) => {
         </h2>
 
         {/* Description */}
-        <p className="mt-2 min-h-[60px] text-sm leading-5 text-gray-500">
+        <p className="mt-2 min-h-15 text-sm leading-5 text-gray-500">
           {technology.description}
         </p>
 
         {/* Divider */}
-        <div className="my-4 h-px bg-gradient-to-r from-transparent via-gray-200 to-transparent" />
+        <div className="my-4 h-px bg-linear-to-r from-transparent via-gray-200 to-transparent" />
 
         {/* Stats */}
         <div className="flex items-center justify-between">
@@ -60,8 +67,12 @@ const TechnologyCard = ({ technology }: TechnologyCardProps) => {
         </div>
 
         {/* Gaming Button */}
-        <button className="mt-5 w-full rounded-lg border border-gray-200 bg-gray-950 py-2.5 text-sm font-bold uppercase tracking-wider text-white transition-all duration-300 hover:border-transparent hover:bg-gradient-to-r hover:from-red-500 hover:to-purple-600 hover:shadow-lg hover:shadow-purple-500/30 active:scale-[0.98]">
-          Add to Stack
+        <button
+          onClick={() => handleSelectTechnology(technology)}
+          className="mt-5 w-full rounded-lg border border-gray-200 bg-gray-950 py-2.5 text-sm font-bold uppercase tracking-wider text-white transition-all duration-300 hover:border-transparent hover:bg-linear-to-r hover:from-red-500 hover:to-purple-600 hover:shadow-lg hover:shadow-purple-500/30 active:scale-[0.98]"
+          disabled={isSelected ? true : false}
+        >
+          {isSelected === true ? "Selected" : "Add to Stack"}
         </button>
       </div>
     </div>
