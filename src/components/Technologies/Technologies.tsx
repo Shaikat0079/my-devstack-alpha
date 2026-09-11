@@ -4,6 +4,7 @@ import type { ITechnology } from "../../types/technologyType";
 
 import TechnologyCard from "./TechnologyCard";
 import SelectedTechnologies from "./SelectedTechnologies";
+import { Bounce, toast } from "react-toastify";
 
 interface TechnologiesProps {
   technologiesPromise: Promise<ITechnology[]>;
@@ -17,6 +18,17 @@ const Technologies = ({ technologiesPromise }: TechnologiesProps) => {
 
   const handleSelectTechnology = (technology: ITechnology) => {
     setSelectedTechnologies((prev) => [...prev, technology]);
+    toast.success(`${technology.name} added successfully!`, {
+      position: "top-center",
+      autoClose: 5000,
+      hideProgressBar: false,
+      closeOnClick: false,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: "dark",
+      transition: Bounce,
+    });
   };
 
   return (

@@ -1,4 +1,3 @@
-import { useState, type Dispatch, type SetStateAction } from "react";
 import type { ITechnology } from "../../types/technologyType";
 
 interface ITechnologyCardProps {
