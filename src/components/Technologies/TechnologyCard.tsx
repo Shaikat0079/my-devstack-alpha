@@ -2,16 +2,21 @@ import { useState, type Dispatch, type SetStateAction } from "react";
 import type { ITechnology } from "../../types/technologyType";
 
 interface ITechnologyCardProps {
-technology: ITechnology;
-handleSelectTechnology: (technology: ITechnology) => void;
+  technology: ITechnology;
+  handleSelectTechnology: (technology: ITechnology) => void;
+  selectedTechnologies: ITechnology[];
 }
 
-const TechnologyCard = ({ technology,handleSelectTechnology}: ITechnologyCardProps) => {
-  const [isSelected, setIsSelected] = useState(false);
-  const handleSelectedTechno =()=>{
-    setIsSelected(true)
-  }
-  console.log(isSelected, setIsSelected, "isSelected, setIsSelected");
+const TechnologyCard = ({
+  technology,
+  handleSelectTechnology,
+  selectedTechnologies,
+}: ITechnologyCardProps) => {
+  const isSelected = selectedTechnologies.some(
+    (item) => item.id === technology.id,
+  );
+
+//   console.log(isSelected, setIsSelected, "isSelected, setIsSelected");
   return (
     <div className="group relative w-full max-w-sm overflow-hidden rounded-2xl border border-gray-200 bg-white p-5 shadow-md transition-all duration-300 hover:-translate-y-2 hover:border-purple-300 hover:shadow-xl hover:shadow-purple-200/40">
       {/* Gaming glow */}
@@ -69,10 +74,14 @@ const TechnologyCard = ({ technology,handleSelectTechnology}: ITechnologyCardPro
         {/* Gaming Button */}
         <button
           onClick={() => handleSelectTechnology(technology)}
-          className="mt-5 w-full rounded-lg border border-gray-200 bg-gray-950 py-2.5 text-sm font-bold uppercase tracking-wider text-white transition-all duration-300 hover:border-transparent hover:bg-linear-to-r hover:from-red-500 hover:to-purple-600 hover:shadow-lg hover:shadow-purple-500/30 active:scale-[0.98]"
-          disabled={isSelected ? true : false}
+          disabled={isSelected}
+          className={`mt-5 w-full rounded-lg border py-2.5 text-sm font-bold uppercase tracking-wider transition-all duration-300 ${
+            isSelected
+              ? "cursor-not-allowed border-green-200 bg-green-50 text-green-600"
+              : "border-gray-200 bg-gray-950 text-white hover:border-transparent hover:bg-linear-to-r hover:from-red-500 hover:to-purple-600 hover:shadow-lg hover:shadow-purple-500/30 active:scale-[0.98]"
+          }`}
         >
-          {isSelected === true ? "Selected" : "Add to Stack"}
+          {isSelected ? "✓ Selected" : "Add to Stack"}
         </button>
       </div>
     </div>

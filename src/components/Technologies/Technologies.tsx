@@ -35,6 +35,7 @@ const Technologies = ({ technologiesPromise }: TechnologiesProps) => {
             key={technology.id}
             technology={technology}
             handleSelectTechnology={handleSelectTechnology}
+            selectedTechnologies = {selectedTechnologies}
           />
         ))}
       </div>
