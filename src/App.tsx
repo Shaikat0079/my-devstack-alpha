@@ -14,8 +14,8 @@ function App() {
 const [technologiesPromise] = useState(()=>technologiesFetch())
   return (
     <>
-    <Nav/>
-    <Hero/>
+    {/* <Nav/> */}
+    {/* <Hero/> */}
     <Suspense fallback ={<h2>🌀 Loading...</h2>}>
       <Technologies technologiesPromise={technologiesPromise}/>
     </Suspense>
