@@ -34,13 +34,14 @@ const Technologies = ({ technologiesPromise }: TechnologiesProps) => {
   return (
     <div className="container mx-auto">
 
-      <h2 className="mb-10 text-4xl font-extrabold uppercase tracking-wider">
+      <h2 className="my-5 text-4xl font-extrabold uppercase tracking-wider">
+        Explore the{" "}
         <span className="bg-linear-to-r from-red-500 to-purple-600 bg-clip-text text-transparent">
-          Development Stack
+           Technologies
         </span>
       </h2>
-
-      <div className="flex">
+    <p className="my-5 text-gray-500">Pick one technology per category to build your stack!</p>
+      <div className="flex flex-col lg:flex-row gap-10">
         <div className="basis-2/3 grid max-w-5xl grid-cols-1 justify-items-center gap-7 md:grid-cols-2 lg:grid-cols-3">
         {technologies.map((technology) => (
           <TechnologyCard
@@ -52,7 +53,7 @@ const Technologies = ({ technologiesPromise }: TechnologiesProps) => {
         ))}
       </div>
 
-      <div className="basis-1/3">
+      <div className="justify-items-center basis-1/3">
         <SelectedTechnologies
         selectedTechnologies={selectedTechnologies}
         setSelectedTechnologies={setSelectedTechnologies}

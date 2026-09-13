@@ -1,28 +1,36 @@
-import { Suspense, useState } from "react"
-import Hero from "./components/Hero"
-import Nav from "./components/Nav"
-import type { ITechnology } from "./types/technologyType"
-import Technologies from "./components/Technologies/Technologies"
-import { ToastContainer } from "react-toastify"
+import { Suspense, useState } from "react";
+import Hero from "./components/Hero";
+import Nav from "./components/Nav";
+import type { ITechnology } from "./types/technologyType";
+import Technologies from "./components/Technologies/Technologies";
+import { ToastContainer } from "react-toastify";
+import Footer from "./components/Footer";
 
-const technologiesFetch = async():Promise<ITechnology[]>=>{
+const technologiesFetch = async (): Promise<ITechnology[]> => {
   const res = await fetch("/data.json");
-  return res.json()
-}
+  return res.json();
+};
 
 function App() {
-  // const [count, setCount] = useState(0)
-const [technologiesPromise] = useState(()=>technologiesFetch())
+  const [technologiesPromise] = useState(() => technologiesFetch());
+
   return (
-    <>
-    <ToastContainer/>
-    {/* <Nav/> */}
-    {/* <Hero/> */}
-    <Suspense fallback ={<h2>🌀 Loading...</h2>}>
-      <Technologies technologiesPromise={technologiesPromise}/>
-    </Suspense>
-    </>
-  )
+    <div className="relative">
+      <ToastContainer />
+
+      <Nav />
+
+      <main className="pt-20">
+        <Hero />
+
+        <Suspense fallback={<h2>🌀 Loading...</h2>}>
+          <Technologies technologiesPromise={technologiesPromise} />
+        </Suspense>
+      </main>
+
+      <Footer />
+    </div>
+  );
 }
 
-export default App
+export default App;

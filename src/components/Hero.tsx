@@ -18,10 +18,10 @@ const Hero = () => {
             next project.
           </p>
           <div className="flex gap-5">
-            <button className="btn border border-red-500/40 bg-linear-to-r from-red-500/20 to-purple-600/20 px-6 py-3 text-white transition-all duration-300 hover:from-red-500 hover:to-purple-600 hover:shadow-lg hover:shadow-purple-500/30">
+            <button className="rounded-2xl btn border bg-purple-500 border-red-500/40 bg-linear-to-r from-red-500/20 to-purple-600/20 px-6 py-3 text-white transition-all duration-300 hover:from-red-500 hover:to-purple-600 hover:shadow-lg hover:shadow-purple-500/30">
               Explore Technologies
             </button>
-            <button className="btn bg-white border border-gray-300 text-transparent bg-linear-to-r from-red-500 to-purple-600 bg-clip-text px-6 py-3 hover:bg-gray-50 ">
+            <button className="rounded-2xl btn bg-white border border-gray-300 text-transparent bg-linear-to-r from-red-500 to-purple-600 bg-clip-text px-6 py-3 hover:bg-gray-50 ">
               Learn More
             </button>
           </div>

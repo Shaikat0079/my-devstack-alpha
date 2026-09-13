@@ -4,7 +4,7 @@
     "name": "TypeScript",
     "category": "Frontend",
     "description": "A strongly typed programming language built on JavaScript for developing scalable applications.",
-    "icon": "https://icon.icepanel.io/Technology/svg/TypeScript.svg",
+    "icon": "https://raw.githubusercontent.com/vscode-icons/vscode-icons/master/icons/file_type_typescript.svg",
     "rating": 4.8,
     "difficulty": "Intermediate",
     "badge": "Trending"
@@ -14,7 +14,7 @@
     "name": "JavaScript",
     "category": "Frontend",
     "description": "A versatile programming language used to create interactive and dynamic web applications.",
-    "icon": "https://icon.icepanel.io/Technology/svg/JavaScript.svg",
+    "icon": "https://raw.githubusercontent.com/ryanoasis/nerd-fonts/master/src/svgs/javascript.svg",
     "rating": 4.9,
     "difficulty": "Beginner-Friendly",
     "badge": "Essential"

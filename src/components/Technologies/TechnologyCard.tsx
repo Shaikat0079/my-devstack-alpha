@@ -36,7 +36,7 @@ const TechnologyCard = ({
           </div>
 
           {/* Badge */}
-          <span className="rounded-full border border-purple-200 bg-linear-to-r from-red-50 to-purple-50 px-3 py-1 text-xs font-bold uppercase tracking-wider text-sky-600">
+          <span className="rounded-full border border-purple-200 bg-linear-to-r from-red-50 to-purple-50 px-3 py-1 text-xs font-bold tracking-wider text-sky-600">
             {technology.badge}
           </span>
         </div>

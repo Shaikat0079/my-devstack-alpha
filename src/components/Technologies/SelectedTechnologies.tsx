@@ -1,5 +1,6 @@
 import type { Dispatch, SetStateAction } from "react";
 import type { ITechnology } from "../../types/technologyType";
+import { GiSparkyBomb } from "react-icons/gi";
 
 interface ISelectedTechnologiesProps {
   selectedTechnologies: ITechnology[];
@@ -57,7 +58,7 @@ const SelectedTechnologies = ({
                 onClick={() => handleRemoveTechnology(technology)}
                 className="text-xs font-semibold text-red-500 hover:text-red-700"
               >
-                Remove
+                <GiSparkyBomb className="cursor-pointer text-5xl"/>
               </button>
             </div>
           ))}
