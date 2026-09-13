@@ -1,32 +1,67 @@
-# React + TypeScript + Vite
+# 🎮 DevStack – Technology Selection App
 
-This template provides a minimal setup to get React working in Vite with HMR and some Oxlint rules.
+## 📌 About the Project
 
-Currently, two official plugins are available:
+DevStack is a modern and responsive React application that allows users to explore different development technologies and build their own personalised technology stack. The project was created to practise React, TypeScript, state management, props, and modern UI development.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## 🛠️ Technologies Used
 
-## React Compiler
+- React
+- TypeScript
+- Tailwind CSS
+- Vite
+- React Toastify
+- JSON
+- React Hooks (`useState`, `use`)
+- Git & GitHub
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## ✨ Features
 
-## Expanding the Oxlint configuration
+1. **Explore Technologies**  
+   Users can browse different technologies and view their name, category, description, icon, rating, difficulty, and badge.
 
-If you are developing a production application, we recommend enabling type-aware lint rules by installing `oxlint-tsgolint` and editing `.oxlintrc.json`:
+2. **Build Your Technology Stack**  
+   Users can select technologies and add them to their personal development stack. They can also remove technologies from their stack.
 
-```json
-{
-  "$schema": "./node_modules/oxlint/configuration_schema.json",
-  "plugins": ["react", "typescript", "oxc"],
-  "options": {
-    "typeAware": true
-  },
-  "rules": {
-    "react/rules-of-hooks": "error",
-    "react/only-export-components": ["warn", { "allowConstantExport": true }]
-  }
-}
-```
+3. **Responsive and Interactive UI**  
+   The application provides a modern, responsive interface with hover effects, animations, gradient styling, and toast notifications.
 
-See the [Oxlint rules documentation](https://oxc.rs/docs/guide/usage/linter/rules) for the full list of rules and categories.
+---
+
+# ⚛️ React Questions & Answers
+
+## 1. What is JSX, and why is it used in React?
+
+JSX is a syntax that allows us to write HTML-like code inside JavaScript or TypeScript. It makes it easier to create and understand the UI of React components.
+
+## 2. What is the difference between props and state?
+
+Props are used to pass data from a parent component to a child component. State is data managed inside a component that can change over time and cause the component to re-render.
+
+## 3. What does the `useState` hook do, and where did you use it in this project?
+
+`useState` is a React Hook used to store and update data inside a component. I used it to store the selected technologies and update the technology stack when a user adds or removes a technology.
+
+## 4. What does the `useEffect` hook do, and why did you need it to load the JSON data?
+
+`useEffect` is used to perform side effects such as fetching data or running code after a component renders. I did not use `useEffect` in this project to load the JSON data. Instead, I used React's `use()` hook with `Suspense` to handle the Promise and load the data.
+
+## 5. Why does every item in a `.map()` list need a unique `key` prop?
+
+A unique `key` helps React identify each item in a list. It allows React to efficiently detect which items have been added, removed, or changed.
+
+## 6. What is conditional rendering? Show one place you used it.
+
+Conditional rendering means displaying different content depending on a condition. I used it in the selected technology section to display an empty stack message when no technologies have been selected.
+
+```tsx
+{selectedTechnologies.length === 0 ? (
+  <p>Your stack is empty.</p>
+) : (
+  selectedTechnologies.map((technology) => (
+    <SelectedTechnologyCard
+      key={technology.id}
+      technology={technology}
+    />
+  ))
+)}
