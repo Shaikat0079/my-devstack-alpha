@@ -55,13 +55,21 @@ A unique `key` helps React identify each item in a list. It allows React to effi
 Conditional rendering means displaying different content depending on a condition. I used it in the selected technology section to display an empty stack message when no technologies have been selected.
 
 ```tsx
-{selectedTechnologies.length === 0 ? (
-  <p>Your stack is empty.</p>
-) : (
-  selectedTechnologies.map((technology) => (
-    <SelectedTechnologyCard
-      key={technology.id}
-      technology={technology}
-    />
-  ))
-)}
+{
+  selectedTechnologies.length === 0 ? (
+    <div className="mt-4 flex h-16 items-center justify-center rounded-xl border border-dashed border-gray-200 bg-gray-50/50">
+      <p className="text-sm text-gray-400">Your stack is empty.</p>
+    </div>
+  ) : (
+    <div className="mt-4 space-y-3">
+      {selectedTechnologies.map((technology) => (
+        <SelectedTechnologyCard
+          key={technology.id}
+          technology={technology}
+          handleRemoveTechnology={handleRemoveTechnology}
+        />
+      ))}
+    </div>
+  );
+}
+```
