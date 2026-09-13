@@ -12,8 +12,8 @@ const Nav = () => {
           <li>Contact</li>
         </ul>
         <div>
-          <button className="btn btn-soft btn-secondary">Sign In</button>
-          <button className="btn btn-outline btn-secondary">Sign Up</button>
+          <button className="btn btn-soft btn-secondary bg-purple-400 mx-5">Sign In</button>
+          <button className="btn btn-outline btn-secondary bg-red-400">Sign Up</button>
         </div>
       </nav>
     </div>

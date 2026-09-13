@@ -1,6 +1,5 @@
 import type { Dispatch, SetStateAction } from "react";
 import type { ITechnology } from "../../types/technologyType";
-import { GiSparkyBomb } from "react-icons/gi";
 import SelectedTechnologyCard from "./SelectedTechnologyCard";
 
 interface ISelectedTechnologiesProps {
